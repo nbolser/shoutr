@@ -2,9 +2,6 @@ class SessionsController < Clearance::SessionsController
   private
 
   def authenticate(_)
-
-    binding.pry
-
     super(session_params)
   end
 
