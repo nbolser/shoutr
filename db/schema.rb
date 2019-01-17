@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_230043) do
+ActiveRecord::Schema.define(version: 2019_01_17_054932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "shouts", force: :cascade do |t|
-    t.text "body", null: false
+    t.text "body"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content_type"
+    t.integer "content_id"
+    t.index ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id"
     t.index ["user_id"], name: "index_shouts_on_user_id"
+  end
+
+  create_table "text_shouts", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
