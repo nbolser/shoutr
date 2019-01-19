@@ -8,9 +8,14 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   def like(shout)
-
-    binding.pry
-
     liked_shouts << shout
+  end
+
+  def unlike(shout)
+    liked_shouts.destroy(shout)
+  end
+
+  def liked?(shout)
+    liked_shout_ids.include?(shout.id)
   end
 end
