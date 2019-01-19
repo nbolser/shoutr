@@ -3,4 +3,5 @@
   <%= link_to shout.username, shout.user %>
   <%= render shout.content %>
   <%= link_to time_ago_in_words(shout.created_at) + ' ago', shout %>
+  <%= like_button(shout) %>
 </div>
