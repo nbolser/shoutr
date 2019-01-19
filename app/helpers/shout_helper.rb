@@ -12,4 +12,8 @@ module ShoutHelper
       link_to 'Like', like_shout_path(shout), method: :post
     end
   end
+
+  def autolink(body)
+
+  end
 end
