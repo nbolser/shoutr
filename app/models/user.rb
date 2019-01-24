@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :followed_user_relationships,
     foreign_key: :follower_id,
+    class_name: 'FollowingRelationship',
     dependent: :destroy
   has_many :followed_users, through: :followed_user_relationships
 
@@ -18,6 +19,13 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   validates :username, presence: true, uniqueness: true
+
+  def timeline_shouts
+
+    binding.pry
+
+    Shout.where(user_id: followed_user_ids + [id])
+  end
 
   def follow(user)
     followed_users << user
