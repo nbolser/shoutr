@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#show'
 
-  post 'text_shouts' => 'shouts#create', defaults: { content_type: 'TextShouts' }
-  post 'photo_shouts' => 'shouts#create', defaults: { content_type: 'PhotoShouts' }
+  post 'text_shouts' => 'shouts#create', defaults: { content_type: TextShout }
+  post 'photo_shouts' => 'shouts#create', defaults: { content_type: PhotoShout }
 
   resources :shouts, only: [:show] do
     member do
