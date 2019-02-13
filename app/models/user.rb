@@ -21,9 +21,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   def timeline_shouts
-
-    binding.pry
-
     Shout.where(user_id: followed_user_ids + [id])
   end
 
