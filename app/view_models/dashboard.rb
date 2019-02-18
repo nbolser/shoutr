@@ -4,7 +4,7 @@ class Dashboard
   end
 
   def timeline
-    Timeline.new(timeline_users)
+    Timeline.new(timeline_users).shouts
   end
 
   private
