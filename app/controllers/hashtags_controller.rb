@@ -1,8 +1,5 @@
 class HashtagsController < ApplicationController
   def show
-
-    binding.pry
-
     @search = Search.new(term: hashtag)
   end
 

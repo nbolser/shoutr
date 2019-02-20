@@ -1,4 +1,7 @@
 class Search
+  # include ActiveModel::Conversion
+  # extend  ActiveModel::Naming
+
   attr_reader :term
 
   def initialize(term:)
